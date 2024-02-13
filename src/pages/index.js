@@ -52,7 +52,7 @@ export default function Home() {
             >
               {todo.text}
             </span>
-            <button onClick={() => handleToggleTodo(todo.id)}>Toggle</button>
+            <button onClick={() => handleToggleTodo(todo.id)}>Done</button>
             <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
