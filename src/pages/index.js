@@ -42,7 +42,7 @@ export default function Home() {
         onChange={(e) => setInput(e.target.value)}
       />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <ul>
+      <ul className="todolist">
         {todos.map((todo) => (
           <li key={todo.id}>
             <span
