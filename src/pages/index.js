@@ -6,6 +6,7 @@ import {
   deleteTodo,
   selectTodos,
 } from "../slices/todoSlice";
+import { FaPlus, FaTrashAlt, FaTimes, FaCheck } from "react-icons/fa";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -35,16 +36,19 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>Redux Todo List</h1>
       <input
         type="text"
+        placeholder="Enter todo"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <ul className="todoul">
+      <button className="add" onClick={handleAddTodo}>
+        Add <FaPlus />
+      </button>
+      <div className="todoitems">
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <div className="todoitem" key={todo.id}>
             <span
               style={{
                 textDecoration: todo.completed ? "line-through" : "none",
@@ -52,11 +56,31 @@ export default function Home() {
             >
               {todo.text}
             </span>
-            <button onClick={() => handleToggleTodo(todo.id)}>Done</button>
-            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-          </li>
+            <div>
+              <button
+                className="check"
+                onClick={() => handleToggleTodo(todo.id)}
+              >
+                {todo.completed ? (
+                  <>
+                    <FaTimes />
+                  </>
+                ) : (
+                  <>
+                    <FaCheck />
+                  </>
+                )}
+              </button>
+              <button
+                className="delete"
+                onClick={() => handleDeleteTodo(todo.id)}
+              >
+                <FaTrashAlt />
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
