@@ -1,6 +1,7 @@
-# Chas React Todo List
+# Chas Redux Todo List
 
 Live website link:
+https://todolist-redux-toolkit-xi.vercel.app/
 
 ## Used
 
